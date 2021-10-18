@@ -107,10 +107,14 @@ jobs:
       - checkout
       - run:
           name: Heroku Deploy
-          command: echo todo && false
+          command: git push https://heroku:4cfedce8-0205-477b-a50a-10102422f942@git.heroku.com/whispering-beach-97898.git HEAD:main 
       - run:
           name: Smoke Test
-          command: echo todo && false
+          command: HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://whispering-beach-97898.herokuapp.com/`
+          if [ "$HTTPCODE" -ne 200 ];then
+              echo "heroku app not responding, failing deploy"
+              exit 1
+          fi
 
 workflows:
   version: 2
