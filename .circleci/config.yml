@@ -49,7 +49,7 @@ jobs:
           at: /tmp
       - run:
           name: Install netlify
-          command: npm install netlify-cli --save-dev
+          command: npm install netlify-cli --save-dev --auth $NETLIFY_AUTH_TOKEN
       - run:
           name: Deploy app
           command: yarn netlify deploy --prod --dir=/tmp/server-doc
