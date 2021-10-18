@@ -49,7 +49,7 @@ jobs:
           at: /tmp
       - run:
           name: Deploy app
-          command: echo todo && false
+          command: netlify deploy --prod --dir=/tmp/server-doc - $NETLIFY_AUTH_TOKEN
   back-test-unit:
     <<: *shared-config
     steps:
@@ -107,7 +107,7 @@ jobs:
       - checkout
       - run:
           name: Heroku Deploy
-          command: git push https://heroku:4cfedce8-0205-477b-a50a-10102422f942@git.heroku.com/whispering-beach-97898.git HEAD:main 
+          command: git push https://heroku:$HEROKU_KEY@git.heroku.com/whispering-beach-97898.git HEAD:main 
       - run:
           name: Smoke Test
           command: |
