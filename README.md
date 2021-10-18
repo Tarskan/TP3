@@ -1,6 +1,5 @@
 <h1 align="center">Welcome to TP on CD and CircleCI 👋</h1>
 
-test
 You can find the codelabs here on iCampus.
 
 ## Installation
