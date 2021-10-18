@@ -48,8 +48,11 @@ jobs:
       - attach_workspace:
           at: /tmp
       - run:
+          name: Install netlify
+          command: npm install netlify-cli --save-dev
+      - run:
           name: Deploy app
-          command: netlify deploy --prod --dir=/tmp/server-doc
+          command: yarn netlify deploy --prod --dir=/tmp/server-doc
   back-test-unit:
     <<: *shared-config
     steps:
