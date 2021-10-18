@@ -49,7 +49,7 @@ jobs:
           at: /tmp
       - run:
           name: Deploy app
-          command: netlify deploy --prod --dir=/tmp/server-doc - $NETLIFY_AUTH_TOKEN
+          command: netlify deploy --prod --dir=/tmp/server-doc
   back-test-unit:
     <<: *shared-config
     steps:
