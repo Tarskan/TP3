@@ -49,10 +49,10 @@ jobs:
           at: /tmp
       - run:
           name: Install netlify
-          command: npm install netlify-cli --save-dev --auth $NETLIFY_AUTH_TOKEN
+          command: yarn add netlify-cli -D
       - run:
           name: Deploy app
-          command: yarn netlify deploy --prod --dir=/tmp
+          command: yarn netlify deploy --prod --dir=/tmp/server-doc
   back-test-unit:
     <<: *shared-config
     steps:
